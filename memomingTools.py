@@ -85,7 +85,7 @@ def make_csv_custom_label ( csvFile_path, dataFile_path, label ) :
         for each in data_label_list :
             wr.writerow(each)
 
-def suffle_csv ( csvFile_path ) :
+def shuffle_csv ( csvFile_path ) :
     buffer = list()
     with open( csvFile_path, "r" ) as f :
         rdr = csv.reader(f)
