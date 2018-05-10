@@ -74,14 +74,25 @@ def make_csv_one_zero_label ( true_dataFile_path, false_dataFile_path, proportio
         for each in test_data :
             wr.writerow(each)
 
-def make_csv_custom_label ( csvFile, dataFile_path, label ) :
+def make_csv_custom_label ( csvFile_path, dataFile_path, label ) :
     data_label_list = list()
     for each in os.listdir( dataFile_path ) :
-        data_label_list.append( [each, label] )
+        data_label_list.append( [dataFile_path+os.sep+each, label] )
+        # data_label_list.append( [each, label] ) # original
 
-    random.shuffle( data_label_list )
-
-    with open( csvFile, "a", newline="" ) as f :
+    with open( csvFile_path, "a", newline="" ) as f :
         wr = csv.writer(f)
         for each in data_label_list :
             wr.writerow(each)
+
+def suffle_csv ( csvFile_path ) :
+    buffer = list()
+    with open( csvFile_path, "r" ) as f :
+        rdr = csv.reader(f)
+        for eachRow in rdr :
+            buffer.append(eachRow)
+    random.shuffle(buffer)
+    with open( csvFile_path , "w", newline="" ) as f :
+        wr = csv.writer(f)
+        for eachRow in buffer :
+            wr.writerow(eachRow)
