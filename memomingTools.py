@@ -52,7 +52,7 @@ def find_and_move_anotherFile_inPath ( targetPath, filterPath,  savePath ) :
             shutil.move( os.path.join(targetPath,item), savePath )
             print("["+str(fileNo)+"] moved file : ", item)
 
-def make_one_zero_label ( true_dataFile_path, false_dataFile_path, proportion ) :
+def make_csv_one_zero_label ( true_dataFile_path, false_dataFile_path, proportion ) :
     data_list   = list()
 
     for each in os.listdir( true_dataFile_path ) :
@@ -72,4 +72,16 @@ def make_one_zero_label ( true_dataFile_path, false_dataFile_path, proportion ) 
     with open( "test_data.csv", "w", newline="" ) as f:
         wr = csv.writer(f)
         for each in test_data :
+            wr.writerow(each)
+
+def make_csv_custom_label ( csvFile, dataFile_path, label ) :
+    data_label_list = list()
+    for each in os.listdir( dataFile_path ) :
+        data_label_list.append( [each, label] )
+
+    random.shuffle( data_label_list )
+
+    with open( csvFile, "a", newline="" ) as f :
+        wr = csv.writer(f)
+        for each in data_label_list :
             wr.writerow(each)
