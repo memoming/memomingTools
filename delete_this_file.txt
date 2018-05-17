@@ -6,3 +6,8 @@ fuunction B  :
 	1~~~~
 
 
+function C :
+
+	~~
+	~~~
+
