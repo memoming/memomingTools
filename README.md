@@ -1,3 +1,11 @@
-# memomingTools
+# memoming Tools
 
-## 쓰면 간편한것들을 열심히 모아 보장
+
+### ToDo List
+
+1. nonmem CSV to nonmemTran converter
+
+----
+### 04-DEC-2019
+* CSV To nmTran Converter 작업
+----
