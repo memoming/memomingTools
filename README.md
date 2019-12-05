@@ -9,10 +9,9 @@
 
 ----
 ### 05-DEV-2019
-## nonmem CSV Converter
+## nonmem csv converter
 * 기존 제약보고서 내 Data 파일을 <br>
-  Nonmem에서 사용가능한 Data Format으로<br>
-  변경 해주는 Converter.  [ [code 바로가기](nonmemTools/converter) ]
+  Nonmem에서 사용가능한 Data Format으로 변경 해주는 Converter.  [ [code 바로가기](nonmemTools/converter) ]
 
 <table>
 <thead>
