@@ -31,7 +31,7 @@
         <img src="pic/nonmemTools/converter/origin.png" width="400px"/>
         </td>
         <td align="center">
-        <img src="pic/nonmemTools/converter/converted.png" width="400px"/>
+        <img src="pic/nonmemTools/converter/convertedCSV.png" width="400px"/>
         </td>
     </tr>
   </tbody>
