@@ -1,8 +1,5 @@
 #######
 
-nonmemTools/converter/csvForms/*
-nonmemTools/converter/convertedCSV/*
-
 #######
 
 # Created by https://www.gitignore.io/api/pydev,linux,macos,python,windows,jupyternotebooks
