@@ -27,6 +27,7 @@ class Converter  :
             wholeData   = list()
             pathEachCSV = os.path.join(self.config.getStateValue("dirPath"),"csvForms",eachCSV)
             pathRltCSV  = os.path.join(pathRltDir,"converted_"+eachCSV)
+            amountValue = int((eachCSV.split("_")[1]).split(".")[0])
 
             with open(pathEachCSV,"r") as csvStream :
                 reader = csv.reader(csvStream)
@@ -37,20 +38,27 @@ class Converter  :
                     else : wholeData.append(each[2:])
 
                 
-            with open(pathRltCSV,"w",encoding="utf-8") as csvStream :
+            with open(pathRltCSV,"w",newline="\n",encoding="utf-8") as csvStream :
                 writer = csv.writer(csvStream)
-                writer.writerow(["ID","TIME","DV","MDV"])
+                writer.writerow(["ID","TIME","DV","AMT","MDV"])
+                amountFlag = False
 
                 for numID,eachAgent in enumerate(wholeData,start=1) :
                     for i, eachData in enumerate(eachAgent,start=0) :
                         if eachData == "BQL" : eachData = "."
                         if eachData == "-" : continue
-                        eachLine = [numID]              # ID
-                        eachLine.append(timeLine[i])    # TIME
-                        eachLine.append(eachData)       # DV
-                        if i == 0 : eachLine.append(1)  # MDV
+                        eachLine = [numID]                  # ID
+                        eachLine.append(timeLine[i])        # TIME
+                        eachLine.append(eachData)           # DV
+                        if not amountFlag : 
+                            eachLine.append(amountValue)    # AMT
+                            amountFlag = True
+                        else : eachLine.append(".")
+                        if i == 0 : eachLine.append(1)      # MDV
+                        elif eachData == "." : eachLine.append(1)
                         else : eachLine.append(0)
                         writer.writerow(eachLine)
+                    amountFlag = False
 
 
 
